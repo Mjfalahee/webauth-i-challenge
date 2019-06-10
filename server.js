@@ -12,11 +12,11 @@ server.use(helmet());
 server.use(cors());
 
 server.get('/', (req, res) => {
-    res.send("<h3> Server is running </h3>")
+    res.send("Server is running");
 });
 
-//server.use roputers
+//server.use routers
 server.use('/api/users', userRouter);
-server.use('/api/auth', authRouter);
+server.use('/api/', authRouter);
 
 module.exports = server;
