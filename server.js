@@ -20,9 +20,13 @@ const sessionConfig = {
         httpOnly: true, //always set to true, it means client JS can't access the cookie
     },
     store: new KnexSessionStore({
-
+        knex: require('./data/dbConfig'),
+        tablename: 'sessions',
+        sidfieldname: 'sid',
+        createtable: true,
+        clearInterval: 1000 * 60 * 30
     })
-}
+};
 
 
 server.use(express.json());

@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', restricted, (req, res) => {
     model.find()
         .then(users => {
-            res.json(users);
+            res.json({users, session: req.session});
         })
         .catch(error => res.send(error));
 });
