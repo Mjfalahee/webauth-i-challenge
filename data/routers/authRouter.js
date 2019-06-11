@@ -47,4 +47,17 @@ router.post('/login', (req, res) => {
         })
 })
 
+
+// logout
+//if a session exists, destroy it! It's that simple.
+
+router.delete('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy();
+    }
+    res.status(200).json({
+        message: 'Adios, thanks for stopping by!'
+    });
+});
+
 module.exports = router;
